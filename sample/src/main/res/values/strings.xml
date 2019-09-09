@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MBDeepLinkKit</string>
+
+    <string name="dialog_app_title">Next action</string>
+    <string name="dialog_app_msg">Select your next action.</string>
+    <string name="dialog_app_show_deeplink">Show DeepLinks</string>
+    <string name="dialog_app_open_app">Open App</string>
+</resources>

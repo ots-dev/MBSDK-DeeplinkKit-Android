@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.daimler.mbdeeplinkkit.sample.overview.apps.FamilyAppItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> item.onItemClicked()}"
+        android:paddingTop="@dimen/mb_margin_small"
+        android:paddingBottom="@dimen/mb_margin_small">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/family_app_icon_size"
+            android:layout_height="@dimen/family_app_icon_size"
+            android:src="@drawable/ic_mercedes_benz"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadUrl="@{item.imageUrl}" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBBody1TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/mb_margin_default"
+            android:gravity="center"
+            android:text="@{item.title}"
+            app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+            app:layout_constraintStart_toEndOf="@id/iv_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_logo"
+            tools:text="MyCar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

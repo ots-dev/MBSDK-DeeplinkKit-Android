@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.daimler.mbdeeplinkkit.sample.overview.deeplinks.DeepLinkOverviewContentItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/mb_margin_small"
+        android:paddingBottom="@dimen/mb_margin_small"
+        android:onClick="@{() -> item.onItemClicked()}">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/deep_link_icon_size"
+            android:layout_height="@dimen/deep_link_icon_size"
+            android:src="@drawable/ic_mercedes_benz"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadUrl="@{item.iconUrl}" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBHeadline4SerifTextView
+            android:id="@+id/tv_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@{item.id}"
+            app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_logo"
+            tools:text="MY_DEEPLINK_ID" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBSubtitle1TextView
+            android:id="@+id/tv_scheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mb_margin_default"
+            android:text="Scheme:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBBody1TextView
+            android:id="@+id/tv_scheme_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.scheme}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_scheme"
+            app:layout_constraintTop_toBottomOf="@id/tv_scheme"
+            tools:text="myCar" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBSubtitle1TextView
+            android:id="@+id/tv_host"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mb_margin_default"
+            android:text="Host:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_scheme_content" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBBody1TextView
+            android:id="@+id/tv_host_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.host}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_host"
+            app:layout_constraintTop_toBottomOf="@id/tv_host"
+            tools:text="commands" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBSubtitle1TextView
+            android:id="@+id/tv_paramteres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mb_margin_default"
+            android:text="Parameters:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_host_content" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBBody1TextView
+            android:id="@+id/tv_paramteres_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.parameters}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_paramteres"
+            app:layout_constraintTop_toBottomOf="@id/tv_paramteres"
+            tools:text="action: route\nlat: 50\nlong: 50" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBSubtitle1TextView
+            android:id="@+id/tv_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mb_margin_default"
+            android:text="Link:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_paramteres_content" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBBody1TextView
+            android:id="@+id/tv_link_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.fullLink}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_link"
+            app:layout_constraintTop_toBottomOf="@id/tv_link"
+            tools:text="myCar://commands?action=route&amp;lat=50&amp;long=50" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBSubtitle1TextView
+            android:id="@+id/tv_vehicles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mb_margin_default"
+            android:text="Vehicles:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_link_content" />
+
+        <com.daimler.mbuikit.widgets.textviews.MBBody1TextView
+            android:id="@+id/tv_vehicles_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{item.vehicles}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_vehicles"
+            app:layout_constraintTop_toBottomOf="@id/tv_vehicles"
+            tools:text="123\n234" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
